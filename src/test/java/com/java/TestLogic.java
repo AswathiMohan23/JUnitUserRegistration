@@ -11,12 +11,12 @@ public class TestLogic {
     static ArrayList<String> list=new ArrayList<String>();
 
     @Test
-    public void firstNameValidation(){
+    public void check_firstName_If_Valid_Return_True(){
         assertEquals("Harry", UserRegistration.isValidName("Harry"));
     }
 
     @Test
-    public void secondNameValidation(){
+    public void check_SecondName_If_Valid_Return_True(){
         assertEquals("Potter", UserRegistration.isValidName("Potter"));
     }
     @Test
@@ -35,5 +35,8 @@ public class TestLogic {
     public void check_PhoneNumber_If_Correct_return_True(){
         assertEquals("91 9734567892", UserRegistration.isValidPhoneNumber("91 9734567892"));
     }
-
+    @Test
+    public void check_Password_If_Correct_return_True(){
+        assertEquals("aAbcd@#1234", UserRegistration.isValidPassword("aAbcd@#1234"));
+    }
 }
