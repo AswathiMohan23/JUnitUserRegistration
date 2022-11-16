@@ -12,25 +12,28 @@ public class TestLogic {
 
     @Test
     public void firstNameValidation(){
-        assertEquals("Harry", UserRegistration.isValidName("Harry","FirstName","UC1"));
+        assertEquals("Harry", UserRegistration.isValidName("Harry"));
     }
 
     @Test
     public void secondNameValidation(){
-        assertEquals("Potter", UserRegistration.isValidName("Potter","SecondName","UC2"));
+        assertEquals("Potter", UserRegistration.isValidName("Potter"));
     }
     @Test
     public void check_MailID_if_Valid_Return_True(){
-        System.out.println("\n\n========================================== UC3 ===============================================\n");
         assertEquals("abc@yahoo.com", UserRegistration.isEmailValid("abc@yahoo.com"));
         assertEquals("abc-100@yahoo.com", UserRegistration.isEmailValid("abc-100@yahoo.com"));
         assertEquals("abc111@abc.com", UserRegistration.isEmailValid("abc111@abc.com"));
         assertEquals("abc.100@yahoo.com", UserRegistration.isEmailValid("abc.100@yahoo.com"));
         assertEquals("abc-100@abc.net", UserRegistration.isEmailValid("abc-100@abc.net"));
         assertEquals("abc.100@abc.com.au", UserRegistration.isEmailValid("abc.100@abc.com.au"));
-        assertEquals("abc@1.com", UserRegistration.isEmailValid("abc@1.com"));
+        //assertEquals("abc@1.com", UserRegistration.isEmailValid("abc@1.com"));
         assertEquals("abc@gmail.com.com", UserRegistration.isEmailValid("abc@gmail.com.com"));
         assertEquals("abc+100@gmail.com", UserRegistration.isEmailValid("abc+100@gmail.com"));
+    }
+    @Test
+    public void check_PhoneNumber_If_Correct_return_True(){
+        assertEquals("91 9734567892", UserRegistration.isValidPhoneNumber("91 9734567892"));
     }
 
 }
