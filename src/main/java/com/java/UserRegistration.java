@@ -6,36 +6,22 @@ import java.util.regex.Pattern;
 public class UserRegistration {
     static int count = 0;
 
-  /*  static String isEveryParametersValid(String mood) throws InvalidDetailsException {
-        System.out.println("count : " + count);
-        if (count != 10) { // gave 10 because we are checking more than 5 emails seperately so count increments
-            throw new InvalidDetailsException("Details Invalid");
-        } else {
-            mood = "Happy";
-            return mood;
-        }
-    }*/
-
-
-
-    static boolean isValidName(String name) throws InvalidDetailsException {
-        if (nameValidation(name) == true) {
-            count++;
-            return true;
-
-        }
-        throw  new InvalidDetailsException();
-    }
 
     private static boolean nameValidation(String name) throws InvalidDetailsException {
         String regex = "[A-Z]{1}[a-z]{3,}";// {3,} means above 3
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(name);
-        matcher.matches();
-        if (matcher.matches() == true)
-            return true;
-        else
+        return matcher.matches();
+    }
+
+    static boolean isValidName(String name) throws InvalidDetailsException {
+        LambdaUserRegistration lambdaFunction = (String i) -> {
+            if (nameValidation(name))
+                // count++;
+                return true;
             return false;
+        };
+        throw new InvalidDetailsException();
     }
 
     static boolean isEmailValid(String email) throws InvalidDetailsException {
@@ -43,23 +29,40 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         matcher.matches();
-        if (matcher.matches() == true) {
+        if (matcher.matches()) {
             count++;
             return true;
         }
-        throw new InvalidDetailsException();
+        else
+            return false;
     }
+
+
+    static boolean emailValidation(String email) throws InvalidDetailsException {
+        LambdaUserRegistration lambdaFunction = (String i) -> {
+            if (isEmailValid(email))
+                // count++;
+                return true;
+            return false;
+        };
+        throw new InvalidDetailsException();
+
+    }
+
 
     static boolean isValidPhoneNumber(String phoneNumber) throws InvalidDetailsException {
         String regex = "[91]+() +[789][0-9]{9}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phoneNumber);
         matcher.matches();
-        if (matcher.matches() == true) {
-            count++;
-            return true;
-        }
+        LambdaUserRegistration lambdaFunction = (String i) -> {
+            if (matcher.matches())
+                // count++;
+                return true;
+            return false;
+        };
         throw new InvalidDetailsException();
+
     }
 
     static String isValidPassword(String password) throws InvalidDetailsException{
@@ -69,12 +72,27 @@ public class UserRegistration {
         String regex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
-        if (matcher.matches() == true) {
-            count++;
-            return password;
-        }
+        LambdaUserRegistration lambdaFunction = (String i) -> {
+            if (matcher.matches())
+                // count++;
+                return true;
+            return false;
+        };
         throw new InvalidDetailsException();
     }
+
+
+
+    /*  static String isEveryParametersValid(String mood) throws InvalidDetailsException {
+        System.out.println("count : " + count);
+        if (count != 10) { // gave 10 because we are checking more than 5 emails seperately so count increments
+            throw new InvalidDetailsException("Details Invalid");
+        } else {
+            mood = "Happy";
+            return mood;
+        }
+    }*/
+
 }
 
 

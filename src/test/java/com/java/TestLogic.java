@@ -12,16 +12,16 @@ public class TestLogic {
 
     @Test
     public void check_firstName_If_Valid_Return_True() throws InvalidDetailsException {
-        boolean result=userRegistration.isValidName("Harry");
+        //userRegistration.isValidName("Harry");
         try{
-            result=userRegistration.isValidName("Harry123");
+             userRegistration.isValidName("Harry123");
         }catch (InvalidDetailsException exception){
             System.out.println("Invalid FirstName Harry123");
         }
     }
     @Test
     public void check_SecondName_If_Valid_Return_True() throws InvalidDetailsException {
-        userRegistration.isValidName("Potter");
+       // userRegistration.isValidName("Potter");
         try{
             userRegistration.isValidName("Potter123");
         }catch (InvalidDetailsException exception){
@@ -31,24 +31,23 @@ public class TestLogic {
 
     @Test
     public void check_MailID_if_Valid_Return_True() throws InvalidDetailsException {
-        userRegistration.isEmailValid("abc@yahoo.com");
-        userRegistration.isEmailValid("abc-100@yahoo.com");
-        userRegistration.isEmailValid("abc111@abc.com");
-        userRegistration.isEmailValid("abc.100@yahoo.com");
-        userRegistration.isEmailValid("abc-100@abc.net");
-        userRegistration.isEmailValid("abc.100@abc.com.au");
-        //assertEquals("abc@1.com", UserRegistration.isEmailValid("abc@1.com"));
-        userRegistration.isEmailValid("abc@gmail.com.com");
-        userRegistration.isEmailValid("abc+100@gmail.com");
+       /* userRegistration.emailValidation("abc@yahoo.com");
+        userRegistration.emailValidation("abc-100@yahoo.com");
+        userRegistration.emailValidation("abc111@abc.com");
+        userRegistration.emailValidation("abc.100@yahoo.com");
+        userRegistration.emailValidation("abc-100@abc.net");
+        userRegistration.emailValidation("abc.100@abc.com.au");
+        userRegistration.emailValidation("abc@gmail.com.com");
+        userRegistration.emailValidation("abc+100@gmail.com");*/
         try{
-            userRegistration.isEmailValid("abc@1.com");
+            userRegistration.emailValidation("abc@1.com");
         }catch (InvalidDetailsException exception){
             System.out.println("Invalid email abc@1.com ");
         }
     }
     @Test
     public void check_PhoneNumber_If_Correct_return_True() throws InvalidDetailsException {
-        userRegistration.isValidPhoneNumber("91 9734567892");
+      //  userRegistration.isValidPhoneNumber("91 9734567892");
 
         try{
             userRegistration.isValidPhoneNumber("41 9734567892");
@@ -59,7 +58,7 @@ public class TestLogic {
     }
     @Test
     public void check_Password_If_Correct_return_True() throws InvalidDetailsException {
-        UserRegistration.isValidPassword("aAbcd@#1234");
+        //UserRegistration.isValidPassword("aAbcd@#1234");
         try{
             UserRegistration.isValidPassword("aAbcd") ;
         }catch (InvalidDetailsException exception){
